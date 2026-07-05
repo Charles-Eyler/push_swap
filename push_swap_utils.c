@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:26:22 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/06/30 21:14:10 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/07/02 23:12:37 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void free_array(char **array)
     return ;
 }
 
-void free_list(t_list list)
+/* void free_list(t_list list)
 {
     if(!list)
         return;
     while(list->head)
     
-}
+} */

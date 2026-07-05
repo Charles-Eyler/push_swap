@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:26 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/06/30 21:48:12 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/07/02 23:21:31 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h" 
+#include "push_swap.h" 
 
-static long int	ft_atol(char *array)
+/* static long int	ft_atol(char *array)
 {
 	int			i;
 	int			sign;
@@ -37,7 +37,7 @@ static long int	ft_atol(char *array)
 		i++;
 	}
 	return (result * sign);
-}
+} */
 
 int	arr_count(char **array)
 {
@@ -49,7 +49,7 @@ int	arr_count(char **array)
 	return (i);
 }
 
-char	**other_parsing(int argc, char **argv)
+char	**other_parsing(char **argv)
 {
 	char	**split_result;
 	char	**array;
@@ -58,7 +58,8 @@ char	**other_parsing(int argc, char **argv)
 
 	i = 1;
 	j = 0;
-	while (strchr(argv[i], ' '))
+	array = NULL;
+	while (ft_strchr(argv[i], ' '))
 	{
 		split_result = ft_split(argv[i], ' ');
 		i++;
@@ -91,22 +92,22 @@ int	ft_dup_check(char **array, int size)
 	return (0);
 }
 
-t_list	*simple_parsing(int argc, char **argv)
+char	**simple_parsing(int argc, char **argv)
 {
 	int				i;
     int				j;
     int				k;
 	char		**array;
-	t_list	lst_a;
-
+	//t_list	lst_a
 	i = 1;
 	j = 0;
+	array = NULL;
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
-		flag_checker(argc, argv);
+		return(array);//flag_checker(argc, argv);
 	if (argc < 2)
 		give_error();
-	if (ft_strchr(argv[i], ' '))
-		array = other_parsing(argc, argv);
+	if (ft_strchr(argv[i + 1], ' '))
+		array = other_parsing(argv);
 	k = arr_count(array);
 	while (i < argc)
 	{
@@ -117,6 +118,21 @@ t_list	*simple_parsing(int argc, char **argv)
 	k = arr_count(array);
 	if (ft_dup_check(array, k) == 1)
 		give_error();
-	//create list a <<ft_lstnew>>!we need to change the libft to make a new ft_lstnew
-	return (&lst_a);
+	return (array);
+}
+//create list a <<ft_lstnew>>!we need to change the libft to make a new ft_lstnew
+
+int main(int argc, char **argv)
+{
+	int i;
+	char **ar;
+
+	ar = simple_parsing(argc, argv);
+	i = 0;
+	while (*ar[i])
+	{
+		printf("%s", ar[i]);
+		i++;
+	}
+	return 0;
 }

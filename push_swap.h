@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/06/30 21:39:28 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/07/02 23:22:22 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,21 @@
 #include "libft/libft.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 //utils->free functions
 void    give_error(void);
 void    free_array(char **array);
 void    free_list(t_list list);
 //flag
-void    flag_checker(int argc, char **argv);
+//void    flag_checker(int argc, char **argv);
 //parsing
-static long int ft_atol(char *array);
+//static long int ft_atol(char *array);
 int     arr_count(char **array);
-char    **other_parsing(int argc, char **argv);
-int ft_dup_check(char **array, int size);
-t_list *simple_parsing(int argc, char **argv);
+char    **other_parsing(char **argv);
+int		ft_dup_check(char **array, int size);
+char **simple_parsing(int argc, char **argv);
 //lists
-t_list   array_to_list();
+//t_list   array_to_list();
 
 #endif

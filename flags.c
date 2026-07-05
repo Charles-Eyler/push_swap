@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:44:11 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/06/30 21:34:13 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/07/02 23:13:39 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h" 
 
 
-void flag_checker(int argc, char **argv)
+/* void flag_checker(int argc, char **argv)
 {
     
-}
+} */
