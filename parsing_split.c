@@ -6,11 +6,11 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 08:21:47 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/07/06 08:50:44 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 18:31:34 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h" 
+#include "push_swap.h" 
 
 static size_t	ft_arg_count(const char *s)
 {
@@ -72,7 +72,7 @@ static void	the_lett_aloc(const char *s, char **ar_ar, int size)
 	ar_ar[size] = NULL;
 }
 
-char	**ft_split(char const *s)
+char	**ft_split_whitespace(char const *s)
 {
 	char	**ar_ar;
 	size_t	words;

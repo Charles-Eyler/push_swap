@@ -6,7 +6,7 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:26:22 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/06 08:34:19 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 19:20:36 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,18 @@ void free_array(char **array)
 
 //---------------unfinished function--------//
 
-void free_list(t_list node)
+void free_list(t_node *node)
 {
     if(!node)
         return;
-    while(node->head)
+    while(node->prev)
+	{
+		free()
+	}
     
+}
+
+void	ft_del_it(void *content)
+{
+	
 }

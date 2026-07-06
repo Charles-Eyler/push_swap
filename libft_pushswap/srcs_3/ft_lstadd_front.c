@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:15 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 05:04:36 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/06 17:45:20 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstadd_front(t_node *lst, t_node *new)
+void	ft_lstadd_front(t_node *lst, t_node *node)
 {
-	if (!lst || !new)
+	if (!lst || !node)
 		return ;
 	if (*lst)
-		new->next = *lst;
-	*lst = new;
+		node->next = *lst;
+	*lst = node;
 }
 
 // static void	del_it(void *content)

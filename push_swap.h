@@ -6,7 +6,7 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/06 17:36:22 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 19:20:39 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,6 @@ typedef struct s_flags
 	t_diff difficulty;
 }	t_flags;
 
-typedef struct s_list
-{
-	int		content;
-	struct s_list *previous;
-	struct s_list *next;	
-}	t_list;
 
 //--------------------------//
 //--------Operations--------//
@@ -87,7 +81,8 @@ int		arr_count(char **array);
 int		ft_isoperator(char c);
 int		ft_isspace(char c);
 long int	ft_atol(char *array);
-char	**ft_split(char const *s);
+char	**ft_split_whitespace(char const *s);
+int	ft_strcmp(const char *s1, const char *s2);
 
 
 //--------------------------//
@@ -103,13 +98,13 @@ void	ft_flag_check(t_flags flags, char **argv);
 
 void    give_error(void);
 void    free_array(char **array);
-void    free_list(t_list list);
+void    free_list(t_node *node);
 
 //--------------------------//
 //----------Lists-----------//
 //--------------------------//
 
-t_list	ft_array_to_list(char **array);
+t_node	ft_array_to_list(char **array);
 void	ft_del_it(void *content);
 
 #endif

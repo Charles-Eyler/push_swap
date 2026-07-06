@@ -6,11 +6,11 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/07/06 08:51:19 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 17:51:24 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h" 
+#include "push_swap.h" 
 
 
 int		ft_isoperator(char c)
@@ -50,4 +50,16 @@ long int	ft_atol(char *array)
 		i++;
 	}
 	return (result * sign);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+	{
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

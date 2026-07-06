@@ -6,12 +6,13 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:26 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/06 08:51:36 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 19:25:38 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h" 
+#include "push_swap.h" 
 
+//counts how many arrays are in the
 int	arr_count(char **array)
 {
 	int	i;
@@ -32,13 +33,13 @@ void	ft_valid_array(char *array)
 		{
 			if(!ft_isdigit(array[i + 1]))
 			{
-				free_array(array);
+				free_array(&array);
 				give_error();
 			}
 		}
 		if(!ft_isspace(array[i]) || (!ft_isdigit(array[i])))
 		{
-		free_array(array);
+		free_array(&array);
 		give_error();
 		}
 		i++;
@@ -56,7 +57,7 @@ int	ft_dup_check(char **array, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (ft_strcmp(array[i], array[j]) == 0)
+			if ( i != j && ft_strcmp(array[i], array[j]) == 0)
 				return (1);
 			j++;
 		}
@@ -75,7 +76,7 @@ char **ft_separate_and_validate(char **argv)
 	j = 0;
 	while(argv[i])
 	{
-		array[j] = ft_split_whitespace(argv[i]);
+		array[j] = *ft_split_whitespace(argv[i]);
 		ft_valid_array(array[j]);
 		i++;
 		j++;
@@ -94,9 +95,9 @@ void	ft_args_check(t_flags flags, char **argv)
 	while(argv[i])
 	{
 		j = 0;
-		if(ft_isspace(argv[i]) == 1)
+		if(ft_isspace(*argv[i]) == 1)
 			j++;
-		while (strnstr(argv[i], "--"))
+		if (ft_strnstr(argv[i], "--", 2))
 			ft_flag_check(flags, argv);
 		i++;
 		while(argv[i][j])

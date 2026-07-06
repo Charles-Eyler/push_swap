@@ -6,10 +6,11 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 08:11:24 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/07/06 08:26:23 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 17:57:04 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h" 
 
 //----------Main temporaria para visualizacao-----------//
 
@@ -24,7 +25,7 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		give_error();
 	ft_args_check(flags, argv);
-	array = ft_transform(argv);
+	array = ft_separate_and_validate(argv);;
 	count = arr_count(array);
 	ft_array_to_list(array);
 
