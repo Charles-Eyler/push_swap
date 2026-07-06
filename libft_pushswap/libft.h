@@ -6,7 +6,7 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 17:44:57 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 19:31:13 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 // srcs_3 definitions:
 t_node				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_node *lst, t_node *node);
+void				ft_lstadd_front(t_node **lst, t_node *new);
 int					ft_lstsize(t_node *lst);
 t_node				*ft_lstlast(t_node *lst);
-void				ft_lstadd_back(t_node *lst, t_node *node);
+void				ft_lstadd_back(t_node **lst, t_node *new);
 void				ft_lstdelone(t_node *lst, void (*del)(void *));
-void				ft_lstclear(t_node *lst, void (*del)(void *));
+void				ft_lstclear(t_node **lst, void (*del)(void *));
 void				ft_lstiter(t_node *lst, void (*f)(void *));
 t_node				*ft_lstmap(t_node *lst, void *(*f)(void *),
 						void (*del)(void *));

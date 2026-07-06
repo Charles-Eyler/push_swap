@@ -6,28 +6,28 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:10 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 17:45:10 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 19:32:35 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstadd_back(t_node *lst, t_node *node)
+void	ft_lstadd_back(t_node **lst, t_node *new)
 {
-	if (!lst || !node)
+	if (!lst || !new)
 		return ;
 	if (!*lst)
 	{
-		*lst = node;
+		*lst = new;
 		return ;
 	}
-	ft_lstlast(*lst)->next = node;
+	ft_lstlast(*lst)->next = new;
 }
 
-static void	del_it(void *content)
+/* static void	del_it(void *content)
 {
 	free(content);
-}
+} */
 
 // static void ft_print_lst(t_node *first)
 // {

@@ -6,19 +6,19 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:15 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 17:45:20 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 19:30:27 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstadd_front(t_node *lst, t_node *node)
+void	ft_lstadd_front(t_node **lst, t_node *new)
 {
-	if (!lst || !node)
+	if (!lst || !new)
 		return ;
 	if (*lst)
-		node->next = *lst;
-	*lst = node;
+		new->next = *lst;
+	*lst = new;
 }
 
 // static void	del_it(void *content)

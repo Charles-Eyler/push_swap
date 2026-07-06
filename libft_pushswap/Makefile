@@ -1,3 +1,4 @@
+
 NAME = libft.a
 
 SRCS_DIR = srcs_*/*
@@ -57,7 +58,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS_SAN = -fsanitize=address
 CFLAGS_BSD = -lbsd
 
-all: $(NAME)
+all: $(NAME) 
 
 $(NAME): $(OBJECTS) $(OBJS_DIR)
 	ar rcs $(NAME) $(OBJECTS)
@@ -66,14 +67,14 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 	$(CC) $(CFLAGS) -c -I$(INC) $< -o  $@
 
 $(OBJS_DIR):
-	mkdir $@
+	mkdir $@ 
 
 clean:
 	rm -rf $(OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
-	rm -rf $(OBJS_DIR)
+	rm -rf $(OBJS_DIR)%.o
 
 re: fclean all
 
