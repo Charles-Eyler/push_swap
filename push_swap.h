@@ -6,31 +6,110 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/02 23:22:22 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 17:36:22 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft/libft.h"
+#include "libft_pushswap/libft.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
+#include <stdbool.h>
 
-//utils->free functions
+//--------------------------//
+//--------Structs-----------//
+//--------------------------//
+
+typedef struct operations
+{
+    char    *sa;
+    char    *sb;
+    char    *ss;
+    char    *pa;
+    char    *pb;
+    char    *ra;
+    char    *rb;
+    char    *rr;
+    char    *rra;
+    char    *rrb;
+    char    *rrr;
+}               op;
+
+typedef enum e_diff
+{
+	DIFF_ADAPTIVE,
+	DIFF_EASY,
+	DIFF_MEDIUM,
+	DIFF_COMPLEX
+}	t_diff;
+
+typedef struct s_flags
+{
+	bool bench;
+	t_diff difficulty;
+}	t_flags;
+
+typedef struct s_list
+{
+	int		content;
+	struct s_list *previous;
+	struct s_list *next;	
+}	t_list;
+
+//--------------------------//
+//--------Operations--------//
+//--------------------------//
+
+void    ft_sstack(t_node *stack);
+void    ft_ss(t_node *stack_a, t_node *stack_b);
+void    ft_pstack(t_node *stack_1, t_node *stack_2);
+void    ft_rstack(t_node *stack);
+void    ft_rr(t_node *stack_a, t_node *stack_b);
+void    ft_rrstack(t_node *stack);
+void    ft_rrr(t_node *stack_a, t_node *stack_b);
+
+//--------------------------//
+//--------Parsing-----------//
+//--------------------------//
+
+void	ft_args_check(t_flags flags, char **argv);
+char **ft_separate_and_validate(char **argv);
+void	ft_valid_array(char *array);
+int		ft_dup_check(char **array, int size);
+int		arr_count(char **array);
+
+//--------------------------//
+//-------Parsing_utils------//
+//--------------------------//
+
+int		ft_isoperator(char c);
+int		ft_isspace(char c);
+long int	ft_atol(char *array);
+char	**ft_split(char const *s);
+
+
+//--------------------------//
+//----------Flags-----------//
+//--------------------------//
+
+void	ft_flag_check(t_flags flags, char **argv);
+
+
+//--------------------------//
+//----------Error-----------//
+//--------------------------//
+
 void    give_error(void);
 void    free_array(char **array);
 void    free_list(t_list list);
-//flag
-//void    flag_checker(int argc, char **argv);
-//parsing
-//static long int ft_atol(char *array);
-int     arr_count(char **array);
-char    **other_parsing(char **argv);
-int		ft_dup_check(char **array, int size);
-char **simple_parsing(int argc, char **argv);
-//lists
-//t_list   array_to_list();
+
+//--------------------------//
+//----------Lists-----------//
+//--------------------------//
+
+t_list	ft_array_to_list(char **array);
+void	ft_del_it(void *content);
 
 #endif

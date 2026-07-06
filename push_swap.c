@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 19:00:21 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/06/30 21:38:43 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/07/06 08:34:45 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,8 @@
 #include "libft/libft.h"
 
 
-// args, atol and split.
 // ft_swap to swap
 //push_swap visualizer
 //bitmasking
 
 
-int main(int argc, char **argv)
-{
-    int v;
-    int i;
-
-    v = 1;
-    while( v < argc)
-    {
-        i = 0;
-        if (argv[v][i] && *argv[i + 1] == ' ')
-			ft_split(*argv, ' ');
-        else
-			//atol
-        
-    }
-}

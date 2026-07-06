@@ -6,38 +6,11 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:26 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/02 23:21:31 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/06 08:51:36 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
-
-/* static long int	ft_atol(char *array)
-{
-	int			i;
-	int			sign;
-	long int	result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (array[i] == ' ' || (array[i] >= 9 && array[i] <= 13))
-		i++;
-	if (array[i] == '-' || array[i] == '+')
-	{
-		if (array[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	if (!(array[i] >= '0' && array[i] <= '9'))
-		return (0);
-	while (array[i] >= '0' && array[i] <= '9')
-	{
-		result = (result * 10) + (array[i] - '0');
-		i++;
-	}
-	return (result * sign);
-} */
+#include "../push_swap.h" 
 
 int	arr_count(char **array)
 {
@@ -49,27 +22,27 @@ int	arr_count(char **array)
 	return (i);
 }
 
-char	**other_parsing(char **argv)
+void	ft_valid_array(char *array)
 {
-	char	**split_result;
-	char	**array;
-	int		i;
-	int		j;
-
-	i = 1;
-	j = 0;
-	array = NULL;
-	while (ft_strchr(argv[i], ' '))
+	int i;
+	i = 0;
+	while(array[i])
 	{
-		split_result = ft_split(argv[i], ' ');
+		if(ft_isoperator(array[i]) == 1)
+		{
+			if(!ft_isdigit(array[i + 1]))
+			{
+				free_array(array);
+				give_error();
+			}
+		}
+		if(!ft_isspace(array[i]) || (!ft_isdigit(array[i])))
+		{
+		free_array(array);
+		give_error();
+		}
 		i++;
 	}
-	while (split_result)
-	{
-		array[j] = split_result[j];
-		j++;
-	}
-	return (array);
 }
 
 int	ft_dup_check(char **array, int size)
@@ -83,7 +56,7 @@ int	ft_dup_check(char **array, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (array[i] == array[j])
+			if (ft_strcmp(array[i], array[j]) == 0)
 				return (1);
 			j++;
 		}
@@ -92,47 +65,52 @@ int	ft_dup_check(char **array, int size)
 	return (0);
 }
 
-char	**simple_parsing(int argc, char **argv)
-{
-	int				i;
-    int				j;
-    int				k;
-	char		**array;
-	//t_list	lst_a
-	i = 1;
-	j = 0;
-	array = NULL;
-	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
-		return(array);//flag_checker(argc, argv);
-	if (argc < 2)
-		give_error();
-	if (ft_strchr(argv[i + 1], ' '))
-		array = other_parsing(argv);
-	k = arr_count(array);
-	while (i < argc)
-	{
-		array[k] = argv[i];
-		i++;
-		k++;
-	}
-	k = arr_count(array);
-	if (ft_dup_check(array, k) == 1)
-		give_error();
-	return (array);
-}
-//create list a <<ft_lstnew>>!we need to change the libft to make a new ft_lstnew
-
-int main(int argc, char **argv)
+char **ft_separate_and_validate(char **argv)
 {
 	int i;
-	char **ar;
+	int j;
+	char **array;
 
-	ar = simple_parsing(argc, argv);
-	i = 0;
-	while (*ar[i])
+	i = 1;
+	j = 0;
+	while(argv[i])
 	{
-		printf("%s", ar[i]);
+		array[j] = ft_split_whitespace(argv[i]);
+		ft_valid_array(array[j]);
 		i++;
+		j++;
 	}
-	return 0;
+	i = arr_count(array);
+	ft_dup_check(array, i);
+	return (array);
 }
+
+void	ft_args_check(t_flags flags, char **argv)
+{
+	int i;
+	int j;
+
+	i = 1;
+	while(argv[i])
+	{
+		j = 0;
+		if(ft_isspace(argv[i]) == 1)
+			j++;
+		while (strnstr(argv[i], "--"))
+			ft_flag_check(flags, argv);
+		i++;
+		while(argv[i][j])
+		{
+			if(ft_isoperator(argv[i][j]) == 1)
+			{
+				j++;
+				if(!ft_isdigit(argv[i][j]))
+					give_error();	
+			}
+			if(!ft_isspace(argv[i][j]) || (ft_isdigit(argv[i][j])))
+				give_error();
+			j++;
+		}
+	}
+}
+

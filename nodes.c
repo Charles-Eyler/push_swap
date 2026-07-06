@@ -3,22 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   nodes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 21:31:36 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/06/30 21:35:01 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/07/06 08:47:17 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h" 
 
 
-t_list   array_to_list()
+//--------Unfinished function---------//
+
+t_list	ft_array_to_list(char **array)
 {
-char **a;
-//atol
+	int i;
+	t_list	*node;
 
-a = (int **)malloc(arr_count(a) * sizeof(long int));
-
-	
+	i = 0;
+	node = malloc(arr_count(array) * sizeof(long int));
+	while(array[i])
+	{
+		lst_add_node(node,lst_new_node(atol(array[i])))
+		i++;
+	}
 }

@@ -1,4 +1,4 @@
-NAME = push_swap.a
+NAME = pushswap.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -9,7 +9,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 INCLUDES = -I. -I$(LIBFT_DIR)
 
 SRCS = parsing.c \
-       push_swap_utils.c \
+       push_swap_utils.c 
 
 OBJS = $(SRCS:.c=.o)
 
