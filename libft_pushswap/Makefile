@@ -1,9 +1,6 @@
 
 NAME = libft.a
-
-SRCS_DIR = srcs_*/*
 OBJS_DIR = objs/
-
 SRC = 	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -22,7 +19,7 @@ SRC = 	ft_atoi.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
-		ft_strncmp.c \
+		ft_strcmp.c \
 		ft_strnstr.c \
 		ft_strrchr.c \
 		ft_tolower.c \
@@ -46,35 +43,36 @@ SRC = 	ft_atoi.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-		ft_lstmap.c 
+		ft_lstmap.c
+
+vpath %.c srcs_1 srcs_2 srcs_3
 
 OBJ = $(SRC:.c=.o)
-
-SOURCES = $(addprefix $(SRCS_DIR),$(SRC))
 OBJECTS = $(addprefix $(OBJS_DIR),$(OBJ))
 INC = .
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -MMD -MP
 CFLAGS_SAN = -fsanitize=address
 CFLAGS_BSD = -lbsd
 
-all: $(NAME) 
+all: $(NAME)
 
-$(NAME): $(OBJECTS) $(OBJS_DIR)
+$(NAME): $(OBJECTS) | $(OBJS_DIR)
 	ar rcs $(NAME) $(OBJECTS)
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
-	$(CC) $(CFLAGS) -c -I$(INC) $< -o  $@
+$(OBJS_DIR)%.o: %.c | $(OBJS_DIR)
+	$(CC) $(CFLAGS) -c -I$(INC) $< -o $@
+
+-include $(OBJECTS:.o=.d)
 
 $(OBJS_DIR):
-	mkdir $@ 
+	mkdir $@
 
 clean:
-	rm -rf $(OBJECTS)
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	rm -rf $(OBJS_DIR)%.o
 
 re: fclean all
 

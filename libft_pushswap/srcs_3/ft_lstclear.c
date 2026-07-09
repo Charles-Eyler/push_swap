@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:18 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 19:30:57 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/09 07:29:11 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@
 // 	printf("deleting node content at memory address %p\n", node->content);
 // }
 
-void	ft_lstclear(t_node **lst, void (*del)(void *))
+void	ft_lstclear(t_node *lst, void (*del)(void *))
 {
 	t_node	*head;
 	t_node	*node;
 
-	if (!lst || !*lst || !del)
+	if (!lst || !del)
 		return ;
-	node = *lst;
+	node = lst;
 	while (node)
 	{
 		head = node->next;
 		ft_lstdelone(node, del);
 		node = head;
 	}
-	*lst = NULL;
+	lst = NULL;
 }
 
 // int main (int argc, char **argv)

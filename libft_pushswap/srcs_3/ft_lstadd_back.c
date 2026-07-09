@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:10 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 19:32:35 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/09 07:28:36 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstadd_back(t_node **lst, t_node *new)
+void	ft_lstadd_back(t_node *lst, t_node *new)
 {
-	if (!lst || !new)
+	if (!new)
 		return ;
-	if (!*lst)
+	if (!lst)
 	{
-		*lst = new;
+		lst = new;
 		return ;
 	}
-	ft_lstlast(*lst)->next = new;
+	ft_lstlast(lst)->next = new;
 }
 
 /* static void	del_it(void *content)

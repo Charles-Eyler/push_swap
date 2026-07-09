@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/06 19:20:39 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/09 09:19:55 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,19 @@ typedef struct operations
     char    *rrr;
 }               op;
 
-typedef enum e_diff
+typedef enum e_flags
 {
 	DIFF_ADAPTIVE,
-	DIFF_EASY,
+	DIFF_SIMPLE,
 	DIFF_MEDIUM,
 	DIFF_COMPLEX
+    
 }	t_diff;
 
 typedef struct s_flags
 {
-	bool bench;
+	bool    has_bench;
+	bool	has_diff;
 	t_diff difficulty;
 }	t_flags;
 
@@ -68,7 +70,7 @@ void    ft_rrr(t_node *stack_a, t_node *stack_b);
 //--------Parsing-----------//
 //--------------------------//
 
-void	ft_args_check(t_flags flags, char **argv);
+void	ft_args_check(char **argv);
 char **ft_separate_and_validate(char **argv);
 void	ft_valid_array(char *array);
 int		ft_dup_check(char **array, int size);
@@ -89,22 +91,26 @@ int	ft_strcmp(const char *s1, const char *s2);
 //----------Flags-----------//
 //--------------------------//
 
-void	ft_flag_check(t_flags flags, char **argv);
-
+void	ft_flag_check(t_flags *flags, char **argv);
+void 	ft_flag_diff(t_flags *flags, char *arg);
+bool	ft_is_diff_flags(char *flag);
+void	ft_flag_bench(t_flags *flags, char **argv);
+bool	ft_is_bench_flags(char *flag);
+int   ft_count_flags(t_flags *flags);
 
 //--------------------------//
 //----------Error-----------//
 //--------------------------//
 
-void    give_error(void);
-void    free_array(char **array);
-void    free_list(t_node *node);
+void    ft_give_error(void);
+void    ft_free_array(char **array);
+//void    free_list(t_node *node);
 
 //--------------------------//
 //----------Lists-----------//
 //--------------------------//
 
-t_node	ft_array_to_list(char **array);
-void	ft_del_it(void *content);
+t_node	**ft_array_to_list(char **array);
+//void	ft_del_it(void *content);
 
 #endif

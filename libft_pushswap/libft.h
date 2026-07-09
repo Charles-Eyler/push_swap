@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 19:31:13 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/09 07:28:57 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *s);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 char				*ft_strrchr(const char *s, int c);
@@ -77,12 +78,12 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 // srcs_3 definitions:
 t_node				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_node **lst, t_node *new);
+void				ft_lstadd_front(t_node *lst, t_node *new);
 int					ft_lstsize(t_node *lst);
 t_node				*ft_lstlast(t_node *lst);
-void				ft_lstadd_back(t_node **lst, t_node *new);
+void				ft_lstadd_back(t_node *lst, t_node *new);
 void				ft_lstdelone(t_node *lst, void (*del)(void *));
-void				ft_lstclear(t_node **lst, void (*del)(void *));
+void				ft_lstclear(t_node *lst, void (*del)(void *));
 void				ft_lstiter(t_node *lst, void (*f)(void *));
 t_node				*ft_lstmap(t_node *lst, void *(*f)(void *),
 						void (*del)(void *));
