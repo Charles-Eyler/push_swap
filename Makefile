@@ -13,11 +13,6 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 LIBS = -L$(LIBFT_DIR) -lft
 LIBS += -L$(PRINTF_DIR) -lftprintf
 
-# CONSIDER:
-#	- go over naming conventions
-# 	- restructure directories
-#	- revisit makefile rules
-#	  (recommended: see https://codeberg.org/maloryware/push_swap/src/branch/main/Makefile)
 
 MIN = 1
 MAX = 500
